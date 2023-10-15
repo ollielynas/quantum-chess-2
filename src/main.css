@@ -1,0 +1,88 @@
+
+:root {
+    /* --square-size: 2em; */
+    --square-size: 5vw;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+
+}
+
+.stats {
+    display: flex;
+
+}
+
+.square {
+    height: var(--square-size);
+    width: var(--square-size);
+    padding: 0;
+    margin: 0;
+}
+
+.black-square {
+    background-color: rgb(36, 34, 34);
+    padding: 0;
+    margin: 0;
+}
+
+.game-div {
+    display: flex;
+    flex-direction: row;
+    width: calc(8 * var(--square-size));
+    height: calc(8 * var(--square-size));
+    row-gap: 0;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+}
+
+.piece {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-height: var(--square-size);
+    position: relative;
+    outline: 1px #dfb326 solid;
+}
+
+
+.piece > svg {
+    filter: drop-shadow(3px 1px 0px #d5ded1);
+    display: block;
+    max-height: 80%;
+    max-width: 80%;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+}
+.piece-team-white > svg {
+    filter: invert(95%) sepia(16%) saturate(268%) hue-rotate(11deg) brightness(110%) contrast(97%) drop-shadow(3px 1px 0px #343534);
+}
+
+#update {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: 100;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    pointer-events: none;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}
