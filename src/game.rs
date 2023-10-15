@@ -1,5 +1,5 @@
 use crate::piece::Piece;
-
+use js_sys; 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Vec2 {
     pub x: i32,
@@ -129,7 +129,7 @@ impl Board {
         let mut new_pieces = vec![];
         for m in &to_move {
             let piece = self.grid[m.0.y as usize][m.0.x as usize][m.1].clone();
-            self.grid[m.0.y as usize][m.0.x as usize][m.1] = piece.with_percent(piece.percent/count as f32);
+            self.grid[m.0.y as usize][m.0.x as usize][m.1] = piece.with_percent(piece.percent - piece.percent/count as f32);
             new_pieces.push(piece.with_percent(piece.percent/count as f32));
         }
         

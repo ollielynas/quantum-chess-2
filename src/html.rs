@@ -38,7 +38,9 @@ impl Board {
         format!("
             <div class='game-div'>
             {inner_html}
-            </div>
+            </div><img src='data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==' style='display:none', onload='add_events()'></img>
         "
         )
     }
@@ -100,7 +102,11 @@ pub fn init_web(board: Board) {
 
     sycamore::render(|cx| {
     let board_signal = create_signal(cx, RefCell::new(board));
-    let html = create_memo(cx,|| {board_signal.get().borrow_mut().all_html()});
+    let html = create_memo(cx,|| {
+        let a = board_signal.get().borrow_mut().all_html();
+        let _ = js_sys::eval("add_events()");
+        a
+    });
     let style = include_str!("main.css");
 
     
@@ -132,7 +138,7 @@ pub fn init_web(board: Board) {
         style(id="style2")
         div(dangerously_set_inner_html=&html.get())
 
-        script(defer=true) {
+        script() {
             ({include_str!("main.js")})
         }
     }

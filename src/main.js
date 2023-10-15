@@ -1,13 +1,18 @@
 
-const boxes = Array.from(document.getElementsByClassName("square"));
 
 const style2 = document.getElementById("style2");
 
 let hover_val = document.getElementById("hover_value");
 let update = document.getElementById("update");
 
+
+
 function add_events() {
+    const boxes = Array.from(document.getElementsByClassName("square"));
+    console.log("event");
+    console.log("added events");
     boxes.forEach((box) => {
+        // console.log(box);
         box.addEventListener("click", function handleClick(event) {
         window.click_pos = this.id;
         update.click();
@@ -20,3 +25,5 @@ function add_events() {
     });
 };
 add_events();
+
+window.add_events = add_events;
