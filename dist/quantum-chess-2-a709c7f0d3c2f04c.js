@@ -205,7 +205,7 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     return real;
 }
 function __wbg_adapter_18(arg0, arg1, arg2) {
-    wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hb4662219322a712f(arg0, arg1, addHeapObject(arg2));
+    wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__heb5ccf650d9d059f(arg0, arg1, addHeapObject(arg2));
 }
 
 function getCachedStringFromWasm0(ptr, len) {
@@ -435,11 +435,6 @@ imports.wbg.__wbg_replaceChild_3ec13b15218637aa = function() { return handleErro
     const ret = getObject(arg0).replaceChild(getObject(arg1), getObject(arg2));
     return addHeapObject(ret);
 }, arguments) };
-imports.wbg.__wbg_eval_8c72ad5eafe427f2 = function() { return handleError(function (arg0, arg1) {
-    var v0 = getCachedStringFromWasm0(arg0, arg1);
-    const ret = eval(v0);
-    return addHeapObject(ret);
-}, arguments) };
 imports.wbg.__wbg_newnoargs_581967eacc0e2604 = function(arg0, arg1) {
     var v0 = getCachedStringFromWasm0(arg0, arg1);
     const ret = new Function(v0);
@@ -490,8 +485,8 @@ imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
 imports.wbg.__wbindgen_throw = function(arg0, arg1) {
     throw new Error(getStringFromWasm0(arg0, arg1));
 };
-imports.wbg.__wbindgen_closure_wrapper97 = function(arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 77, __wbg_adapter_18);
+imports.wbg.__wbindgen_closure_wrapper963 = function(arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 25, __wbg_adapter_18);
     return addHeapObject(ret);
 };
 
@@ -532,7 +527,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('quantum-chess-2-f7b26568d178b86_bg.wasm', import.meta.url);
+        input = new URL('quantum-chess-2-a709c7f0d3c2f04c_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 

@@ -33,6 +33,12 @@ body {
     margin: 0;
 }
 
+.white-square {
+    background-color: rgba(118, 238, 226, 0.242);
+    padding: 0;
+    margin: 0;
+}
+
 .game-div {
     display: flex;
     flex-direction: row;
@@ -64,9 +70,17 @@ body {
     padding: 0;
     margin: 0;
     pointer-events: none;
+    width: fit-content;
 }
 .piece-team-white > svg {
     filter: invert(95%) sepia(16%) saturate(268%) hue-rotate(11deg) brightness(110%) contrast(97%) drop-shadow(3px 1px 0px #343534);
+}
+
+path {
+    stroke: #c9f53882;
+    stroke-width: 1px;
+    /* stroke-dasharray: 2, 2; */
+    stroke-linejoin: round;
 }
 
 #update {

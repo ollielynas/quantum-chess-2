@@ -1,7 +1,7 @@
 use crate::game::Vec2;
 
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PieceType {
     Pawn {first_move: bool},
     King,
@@ -19,7 +19,7 @@ pub enum Team {
     Black,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct CalculatedValues {
     pub moves: Vec<Vec2>,
     pub relative_percent: f32,
@@ -34,7 +34,7 @@ impl Default for CalculatedValues {
     }
 
 }
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Piece {
     pub type_: PieceType,
     pub percent: f32,
@@ -87,15 +87,18 @@ impl Piece {
     }
 
 
-    pub fn valid_moves(&self, position: &Vec2, free_squares: [[bool;8];8]) -> Vec<Vec2> {
+    pub fn valid_moves(&self, position: &Vec2, free_squares: [[bool;8];8], current_turn: Team) -> Vec<Vec2> {
+        if current_turn != self.team {
+            return vec![];
+        }
         self.type_.valid_moves(position, free_squares, self.team)
     }
 
-    pub fn update_calculated_values(&mut self, position: &Vec2, free_squares: [[bool;8];8], total: f32) {
+    pub fn update_calculated_values(&mut self, position: &Vec2, free_squares: [[bool;8];8], total: f32, current_turn:Team) {
         
         let rel = if total <= 1.0 {self.percent} else {self.percent/total};
         let new = CalculatedValues {
-            moves: self.valid_moves(position, free_squares),
+            moves: self.valid_moves(position, free_squares, current_turn),
             relative_percent: rel,
         };
         self.calculated_values = new;
